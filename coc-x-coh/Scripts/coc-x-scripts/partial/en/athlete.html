@@ -1,0 +1,36 @@
+﻿<fieldset>
+    <legend>Athlete's Information</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.athleteFirstName.$error.required && steps[0].complete}">First Name</label>
+        <input id="athleteFirstName" name="athleteFirstName" class="form-control" data-ng-class="{errorField:alpha.athleteFirstName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.firstName" data-ng-required="form.application.affiliation.value=='athlete'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.athleteLastName.$error.required && steps[0].complete}">Last Name</label>
+        <input id="athleteLastName" name="athleteLastName" class="form-control" data-ng-class="{errorField:alpha.athleteLastName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.lastName" data-ng-required="form.application.affiliation.value=='athlete'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.athleteRelationship.$error.required && steps[0].complete}">
+            Relationship to 
+            <span data-ng-switch="form.application.affiliation.firstName != null && form.application.affiliation.lastName !=null">
+                <span data-ng-switch-when="true"><span style="text-transform: capitalize;">{{form.application.affiliation.firstName}} {{form.application.affiliation.lastName}}</span></span>
+                <span data-ng-switch-default>Athlete</span>
+            </span>
+        </label>
+        <select id="athleteRelationship" name="athleteRelationship" class="form-control" data-ng-class="{errorField:alpha.athleteRelationship.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.relationship" data-ng-options="r.type for r in relationships" data-ng-required="form.application.affiliation.value=='athlete'">
+            <option value="">Select</option>
+        </select>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.relationship.type=='Other'">
+        <label data-ng-class="{errorLabel:alpha.athleteRelationshipOther.$error.required && steps[0].complete}">Please Specify</label>
+        <input id="athleteRelationshipOther" name="athleteRelationshipOther" type="text" class="form-control" data-ng-class="{errorField:alpha.athleteRelationshipOther.$error.required && steps[0].complete}"
+            data-ng-model="form.application.affiliation.relationship.value" data-ng-required="form.application.affiliation.relationship.type=='Other'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.athleteSport.$error.required && steps[0].complete}">
+            Sport</label>
+        <select id="athleteSport" name="athleteSport" class="form-control" data-ng-class="{errorField:alpha.athleteSport.$error.required && steps[0].complete}"
+            data-ng-model="form.application.affiliation.area" data-ng-options="s.type for s in winterSports | orderBy: 'type'" data-ng-required="form.application.affiliation.value=='athlete'">
+            <option value="">Select</option>
+        </select>
+    </div>
+</fieldset>

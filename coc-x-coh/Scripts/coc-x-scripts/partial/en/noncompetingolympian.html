@@ -1,0 +1,11 @@
+﻿<fieldset>
+    <legend>Non-competing Olympian's Information</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.olympianSport.$error.required && steps[0].complete}">
+            Sport</label>
+        <select id="olympianSport" name="olympianSport" class="form-control" data-ng-class="{errorField:alpha.olympianSport.$error.required && steps[0].complete}"
+            data-ng-model="form.application.affiliation.area" data-ng-options="s.type for s in sports | orderBy: 'type'" data-ng-required="form.application.affiliation.value=='non-competing'">
+            <option value="">Select</option>
+        </select>
+    </div>
+</fieldset>

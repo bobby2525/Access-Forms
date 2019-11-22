@@ -1,0 +1,27 @@
+﻿<fieldset>
+    <legend>Executive/Board Member's Information</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.exec_guestFirstName.$error.required && steps[0].complete}">First Name</label>
+        <input id="exec_guestFirstName" name="exec_guestFirstName" class="form-control" data-ng-class="{errorField:alpha.exec_guestFirstName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.firstName" data-ng-required="form.application.affiliation.value=='coc_guest'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.exec_guestLastName.$error.required && steps[0].complete}">Last Name</label>
+        <input id="exec_guestLastName" name="exec_guestLastName" class="form-control" data-ng-class="{errorField:alpha.exec_guestLastName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.lastName" data-ng-required="form.application.affiliation.value=='coc_guest'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.exec_guestRelationship.$error.required && steps[0].complete}">
+            Relationship to 
+                            <span data-ng-switch="form.application.affiliation.firstName != null && form.application.affiliation.lastName !=null">
+                                <span data-ng-switch-when="true"><span style="text-transform: capitalize;">{{form.application.affiliation.firstName}} {{form.application.affiliation.lastName}}</span></span>
+                                <span data-ng-switch-default>Executive/Board Member</span>
+                            </span>
+        </label>
+        <select id="exec_guestRelationship" name="exec_guestRelationship" class="form-control" data-ng-class="{errorField:alpha.exec_guestRelationship.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.relationship" data-ng-options="r.type for r in relationships" data-ng-required="form.application.affiliation.value=='coc_guest'" >
+            <option value="">Select</option>
+        </select>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.relationship.type=='Other'">
+        <label data-ng-class="{errorLabel:alpha.exec_guestRelationshipOther.$error.required && steps[0].complete}">Please Specify</label>
+        <input id="exec_guestRelationshipOther" name="exec_guestRelationshipOther" type="text" class="form-control" data-ng-class="{errorField:alpha.exec_guestRelationshipOther.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.relationship.value" data-ng-required="form.application.affiliation.relationship.type=='Other'" />
+    </div>
+</fieldset>

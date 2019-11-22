@@ -1,0 +1,17 @@
+﻿<fieldset>
+    <legend>Information sur l’athlète</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.repFirstName.$error.required && steps[0].complete}">Prénom</label>
+        <input id="repFirstName" name="repFirstName" class="form-control" data-ng-class="{errorField:alpha.repFirstName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.firstName" data-ng-required="form.application.affiliation.value=='rep'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.repLastName.$error.required && steps[0].complete}">Nom de famille</label>
+        <input id="repLastName" name="repLastName" class="form-control" data-ng-class="{errorField:alpha.repLastName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.lastName" data-ng-required="form.application.affiliation.value=='rep'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.repSport.$error.required && steps[0].complete}">Sport</label>
+        <select id="repSport" name="repSport" class="form-control" data-ng-class="{errorField:alpha.repSport.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.area" data-ng-options="s.type for s in winterSports | orderBy:'type'" data-ng-required="form.application.affiliation.value=='rep'" >
+            <option value="">Choisir</option>
+        </select>
+    </div>
+</fieldset>

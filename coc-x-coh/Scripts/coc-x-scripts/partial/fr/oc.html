@@ -1,0 +1,13 @@
+﻿<fieldset>
+    <legend>Information sur le Comité national (CNO) ou international olympique (CIO)</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.oc.$error.required && steps[0].complete}">Comité national olympique ou Comité International Olympique </label>
+        <select id="oc" name="oc" class="form-control" data-ng-model="form.application.affiliation.area" data-ng-class="{errorField:alpha.oc.$error.required && steps[0].complete}" data-ng-options="s.type for s in vips" data-ng-required="form.application.affiliation.value=='oc'" >
+            <option value="">Choisir</option>
+        </select>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.area.type=='National Olympic Committee Member (other than Canada)'">
+        <label data-ng-class="{errorLabel:alpha.ocRelationshipOther.$error.required && steps[0].complete}">Veuillez préciser</label>
+        <input id="ocRelationshipOther" name="ocRelationshipOther" type="text" class="form-control" data-ng-class="{errorField:alpha.ocRelationshipOther.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.area.value" data-ng-required="form.application.affiliation.area.type=='National Olympic Committee Member (other than Canada)'" />
+    </div>
+</fieldset>

@@ -1,0 +1,37 @@
+﻿<fieldset>
+    <legend>Athlete's Information</legend>
+    <div class="form-group">
+        <label>First Name</label>                            
+        <input id="nsfFirstName" name="nsfFirstName" class="form-control" data-ng-model="form.application.affiliation.firstName" data-ng-required="form.application.affiliation.value=='nsf'" />
+        <span class="help-block error" data-ng-show="alpha.nsfFirstName.$error.required && steps[0].complete" >Validation Message</span>
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>                            
+        <input id="nsfLastName" name="nsfLastName" class="form-control" data-ng-model="form.application.affiliation.lastName" data-ng-required="form.application.affiliation.value=='nsf'" />
+        <span class="help-block error" data-ng-show="alpha.nsfLastName.$error.required && steps[0].complete" >Validation Message</span>
+    </div>
+    <div class="form-group">
+        <label>Relationship to 
+            <span data-ng-switch="form.application.affiliation.firstName != null && form.application.affiliation.lastName !=null" >
+                <span data-ng-switch-when="true"><span style="text-transform:capitalize;">{{form.application.affiliation.firstName}} {{form.application.affiliation.lastName}}</span></span>
+                <span data-ng-switch-default>Athlete</span>
+            </span>
+        </label>
+        <select id="nsfRelationship" name="nsfRelationship" class="form-control" data-ng-model="form.application.affiliation.relationship" data-ng-options="r.type for r in relationships" data-ng-required="form.application.affiliation.value=='nsf'">
+            <option value="">Select</option>
+        </select>
+        <span class="help-block error" data-ng-show="alpha.nsfRelationship.$error.required && steps[0].complete">Validation Message</span>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.relationship.type=='Other'">
+        <label>Please Specify</label>
+        <input id="nsfRelationshipOther" name="nsfRelationshipOther" type="text" class="form-control" data-ng-model="form.application.affiliation.relationship.value" data-ng-required="form.application.affiliation.relationship.type=='Other'"/>
+        <span class="help-block error" data-ng-show="alpha.nsfRelationshipOther.$error.required && steps[0].complete">Validation Message</span>
+    </div>
+    <div class="form-group">
+        <label>Sport</label>
+        <select id="nsfSport" name="nsfSport" class="form-control" data-ng-model="form.application.affiliation.area" data-ng-options="s.type for s in winterSports" data-ng-required="form.application.affiliation.value=='nsf'">
+            <option value="">Select</option>
+        </select>  
+        <span class="help-block error" data-ng-show="alpha.nsfSport.$error.required && steps[0].complete">Validation Message</span>                      
+    </div>
+</fieldset>                 

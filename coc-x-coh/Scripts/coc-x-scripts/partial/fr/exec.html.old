@@ -1,0 +1,25 @@
+﻿<fieldset>
+    <legend>Executive/Board Member's Information</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.execFirstName.$error.required && steps[0].complete}">First Name</label>
+        <input id="execFirstName" name="execFirstName" class="form-control" data-ng-class="{errorField:alpha.execFirstName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.firstName" data-ng-required="form.application.affiliation.value=='exec'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.execLastName.$error.required && steps[0].complete}">Last Name</label>
+        <input id="execLastName" name="execLastName" class="form-control" data-ng-class="{errorField:alpha.execLastName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.lastName" data-ng-required="form.application.affiliation.value=='exec'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.execRelationship.$error.required && steps[0].complete}">
+            Role
+            
+        </label>
+        <select id="execRelationship" name="execRelationship" class="form-control" data-ng-class="{errorField:alpha.execRelationship.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.relationship" data-ng-options="r.type for r in cocRelationships" data-ng-required="form.application.affiliation.value=='exec'">
+            <option value="">Select</option>
+        </select>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.relationship.type=='Other'">
+        <label data-ng-class="{errorLabel:alpha.execRelationshipOther.$error.required && steps[0].complete}">Please Specify</label>
+        <input id="execRelationshipOther" name="execRelationshipOther" type="text" class="form-control" data-ng-class="{errorField:alpha.execRelationshipOther.$error.required && steps[0].complete}"
+            data-ng-model="form.application.affiliation.relationship.value" data-ng-required="form.application.affiliation.relationship.type=='Other'" />
+    </div>
+</fieldset>

@@ -1,0 +1,13 @@
+﻿<fieldset>
+    <legend>National or International Olympic Committee Information</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.oc.$error.required && steps[0].complete}">National or International Olympic Committee</label>
+        <select id="OC" name="OC" class="form-control" data-ng-class="{errorField:alpha.oc.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.area" data-ng-options="s.type for s in vips" data-ng-required="form.application.affiliation.value=='oc'" >
+            <option value="">Select</option>
+        </select>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.area.type=='National Olympic Committee Member (other than Canada)'">
+        <label data-ng-class="{errorLabel:alpha.ocRelationshipOther.$error.required && steps[0].complete}">Please Specify</label>
+        <input id="ocRelationshipOther" name="ocRelationshipOther" type="text" class="form-control" data-ng-class="{errorField:alpha.ocRelationshipOther.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.area.value" data-ng-required="form.application.affiliation.area.type=='National Olympic Committee Member (other than Canada)'" />
+    </div>
+</fieldset>

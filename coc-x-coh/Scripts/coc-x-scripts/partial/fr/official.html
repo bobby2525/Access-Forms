@@ -1,0 +1,32 @@
+﻿<fieldset>
+    <legend>Information sur l’officiel de compétition</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.officialFirstName.$error.required && steps[0].complete}">Prénom</label>
+        <input id="officialFirstName" name="officialFirstName" class="form-control" data-ng-class="{errorField:alpha.officialFirstName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.firstName" data-ng-required="form.application.affiliation.value=='official'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.officialLastName.$error.required && steps[0].complete}">Nom de famille</label>
+        <input id="officialLastName" name="officialLastName" class="form-control" data-ng-class="{errorField:alpha.officialLastName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.lastName" data-ng-required="form.application.affiliation.value=='official'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.officialRelationship.$error.required && steps[0].complete}">
+       Lien avec l’officiel
+        </label>
+        <select id="officialRelationship" name="officialRelationship" class="form-control" data-ng-class="{errorField:alpha.officialRelationship.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.relationship" data-ng-options="r.type for r in relationships" data-ng-required="form.application.affiliation.value=='official'">
+            <option value="">Choisir</option>
+        </select>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.relationship.type =='Autre'">
+        <label data-ng-class="{errorLabel:alpha.officialRelationshipOther.$error.required && steps[0].complete}">Veuillez préciser</label>
+        <input id="officialRelationshipOther" name="officialRelationshipOther" type="text" class="form-control" data-ng-class="{errorField:alpha.officialRelationshipOther.$error.required && steps[0].complete}"
+            data-ng-model="form.application.affiliation.relationship.value" data-ng-required="form.application.affiliation.relationship.type =='Autre'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.officialSport.$error.required && steps[0].complete}">
+            Sport</label>
+        <select id="officialSport" name="officialSport" class="form-control" data-ng-class="{errorField:alpha.officialSport.$error.required && steps[0].complete}"
+            data-ng-model="form.application.affiliation.area" data-ng-options="s.type for s in winterSports | orderBy:'type'" data-ng-required="form.application.affiliation.value=='official'">
+            <option value="">Choisir</option>
+        </select>
+    </div>
+</fieldset>

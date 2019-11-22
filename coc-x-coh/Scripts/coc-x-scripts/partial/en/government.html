@@ -1,0 +1,21 @@
+﻿<fieldset>
+    <legend>Government Partner Information</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.governmentSport.$error.required && steps[0].complete}">Government Partner</label>
+        <select id="governmentSport" name="governmentSport" class="form-control" data-ng-class="{errorField:alpha.governmentSport.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.area" data-ng-options="s.type for s in governmentAgencies" data-ng-required="form.application.affiliation.value=='government'" >
+            <option value="">Select</option>
+        </select>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.area.type=='Other'">
+        <label data-ng-class="{errorLabel:alpha.governmentRelationshipOther.$error.required && steps[0].complete}">Please Specify</label>
+        <input id="governmentRelationshipOther" name="governmentRelationshipOther" type="text" class="form-control" data-ng-class="{errorField:alpha.governmentRelationshipOther.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.area.value" data-ng-required="form.application.affiliation.area.type=='Other'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.governmentFirstName.$error.required && steps[0].complete}">Department/Area</label>
+        <input id="governmentFirstName" name="governmentFirstName" class="form-control" data-ng-class="{errorField:alpha.governmentFirstName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.firstName" data-ng-required="form.application.affiliation.value=='government'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.governmentLastName.$error.required && steps[0].complete}">Title</label>
+        <input id="governmentLastName" name="governmentLastName" class="form-control" data-ng-class="{errorField:alpha.governmentLastName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.lastName" data-ng-required="form.application.affiliation.value=='government'" />
+    </div>
+</fieldset>

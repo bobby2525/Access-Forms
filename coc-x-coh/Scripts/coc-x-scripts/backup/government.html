@@ -1,0 +1,25 @@
+﻿<fieldset>
+    <legend>Government Partner Information</legend>
+    <div class="form-group">
+        <label>Government Partner</label>
+        <select id="governmentSport" name="governmentSport" class="form-control" data-ng-model="form.application.affiliation.area" data-ng-options="s.type for s in governmentAgencies" data-ng-required="form.application.affiliation.value=='government'" >
+            <option value="">Select</option>
+        </select>
+        <span class="help-block error" data-ng-show="alpha.governmentSport.$error.required && steps[0].complete">Validation Message</span>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.area.type=='Other'">
+        <label>Please Specify</label>
+        <input id="governmentRelationshipOther" name="governmentRelationshipOther" type="text" class="form-control" data-ng-model="form.application.affiliation.relationship.value" data-ng-required="form.application.affiliation.area.type=='Other'" />
+        <span class="help-block error" data-ng-show="alpha.governmentRelationshipOther.$error.required && steps[0].complete">Validation Message</span>
+    </div>
+    <div class="form-group">
+        <label>Department/Area</label>
+        <input id="governmentFirstName" name="governmentFirstName" class="form-control" data-ng-model="form.application.affiliation.firstName" data-ng-required="form.application.affiliation.value=='government'" />
+        <span class="help-block error" data-ng-show="alpha.governmentFirstName.$error.required && steps[0].complete">Validation Message</span>
+    </div>
+    <div class="form-group">
+        <label>Title</label>
+        <input id="governmentLastName" name="governmentLastName" class="form-control" data-ng-model="form.application.affiliation.lastName" data-ng-required="form.application.affiliation.value=='government'" />
+        <span class="help-block error" data-ng-show="alpha.governmentLastName.$error.required && steps[0].complete">Validation Message</span>
+    </div>
+</fieldset>

@@ -1,0 +1,24 @@
+﻿<fieldset>
+    <legend>Sport Partner's Information</legend>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.partnerRelationship.$error.required && steps[0].complete}">
+            Sport Partner
+        </label>
+        <select id="partnerRelationship" name="partnerRelationship" class="form-control" data-ng-class="{errorField:alpha.partnerRelationship.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.relationship" data-ng-options="r.type for r in sportPartners" data-ng-required="form.application.affiliation.value=='partner'">
+            <option value="">Select</option>
+        </select>
+    </div>
+    <div class="form-group" data-ng-show="form.application.affiliation.relationship.type=='Other'">
+        <label data-ng-class="{errorLabel:alpha.partnerRelationshipOther.$error.required && steps[0].complete}">Please Specify</label>
+        <input id="partnerRelationshipOther" name="partnerRelationshipOther" type="text" class="form-control" data-ng-class="{errorField:alpha.partnerRelationshipOther.$error.required && steps[0].complete}"
+            data-ng-model="form.application.affiliation.relationship.value" data-ng-required="form.application.affiliation.relationship.type=='Other'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.partnerFirstName.$error.required && steps[0].complete}">Department/Area</label>
+        <input id="partnerFirstName" name="partnerFirstName" class="form-control" data-ng-class="{errorField:alpha.partnerFirstName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.firstName" data-ng-required="form.application.affiliation.value=='partner'" />
+    </div>
+    <div class="form-group">
+        <label data-ng-class="{errorLabel:alpha.partnerLastName.$error.required && steps[0].complete}">Title</label>
+        <input id="partnerLastName" name="partnerLastName" class="form-control" data-ng-class="{errorField:alpha.partnerLastName.$error.required && steps[0].complete}" data-ng-model="form.application.affiliation.lastName" data-ng-required="form.application.affiliation.value=='partner'" />
+    </div>
+</fieldset>
